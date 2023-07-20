@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { ProjectsRepository } from './repositories/project.repository';
 
@@ -17,6 +17,9 @@ export class ProjectsService {
 
   async findOne(id: string) {
     const findProject = await this.projectRepository.findOne(id);
+    if (!findProject) {
+      throw new NotFoundException('Project not found');
+    }
     return findProject;
   }
 }
