@@ -6,8 +6,8 @@ import { ProjectsRepository } from './repositories/project.repository';
 export class ProjectsService {
   constructor(private projectRepository: ProjectsRepository) {}
 
-  async create(data: CreateProjectDto) {
-    const project = await this.projectRepository.create(data);
+  async create(data: CreateProjectDto, userId: string) {
+    const project = await this.projectRepository.create(data, userId);
     return project;
   }
 

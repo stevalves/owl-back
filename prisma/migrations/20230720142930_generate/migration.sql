@@ -1,19 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the `Project` table. If the table is not empty, all the data it contains will be lost.
-  - You are about to drop the `User` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropForeignKey
-ALTER TABLE "Project" DROP CONSTRAINT "Project_userId_fkey";
-
--- DropTable
-DROP TABLE "Project";
-
--- DropTable
-DROP TABLE "User";
-
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
@@ -28,8 +12,9 @@ CREATE TABLE "users" (
 CREATE TABLE "projects" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
     "main_tech" TEXT NOT NULL,
-    "techlogies" TEXT[],
+    "technologies" TEXT[],
     "cover_image" TEXT,
     "cover_gif" TEXT,
     "userId" TEXT NOT NULL,

@@ -7,9 +7,9 @@ import { ProjectsRepository } from '../project.repository';
 export class ProjectsInMemoryRepository implements ProjectsRepository {
   private database: Project[] = [];
 
-  async create(data: CreateProjectDto): Promise<Project> {
+  async create(data: CreateProjectDto, userId: string): Promise<Project> {
     const newProject = new Project();
-    Object.assign(newProject, { ...data });
+    Object.assign(newProject, { ...data, userId: userId });
     this.database.push(newProject);
 
     return newProject;
