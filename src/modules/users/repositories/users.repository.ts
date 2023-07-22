@@ -11,13 +11,3 @@ export abstract class UsersRepository {
   abstract update(id: string, data: UpdateUserDto): Promise<User> | User;
   abstract delete(id: string): Promise<void> | void;
 }
-
-// ===
-
-// interface iUsersRepository {
-//   create(data: CreateUserDto): Promise<User> | User;
-//   findAll(): Promise<User[]> | User[];
-//   findOne(id: string): Promise<User> | User;
-//   update(id: string, data: UpdateUserDto): Promise<User> | User;
-//   delete(id: string): Promise<void> | void;
-// }

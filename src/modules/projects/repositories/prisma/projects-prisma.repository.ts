@@ -8,7 +8,7 @@ import { PrismaService } from 'src/database/prisma.service';
 export class ProjectsPrimaRepository implements ProjectsRepository {
   constructor(private prisma: PrismaService) {}
 
-  async create(data: CreateProjectDto): Promise<Project> {
+  async create(data: CreateProjectDto, userId: string): Promise<Project> {
     const project = new Project();
     Object.assign(project, { ...data });
 
@@ -21,7 +21,7 @@ export class ProjectsPrimaRepository implements ProjectsRepository {
         cover_gif: project.cover_gif,
         cover_image: project.cover_image,
         technologies: project.technologies,
-        userId: project.user_id,
+        userId,
       },
     });
 
